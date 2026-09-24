@@ -1,1 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b6b3a">
+  <title>St. Paul University San Miguel - Student Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+<header class="topbar">
+  <div class="brand">
+    <img src="spu-logo.png" alt="St. Paul University San Miguel Logo">
+    <div>
+      <h1>St. Paul University San Miguel</h1>
+      <p>Student Portal • BSCS 3rd Year</p>
+    </div>
+  </div>
+
+  <div class="student-mini">
+    <span class="notification">🔔 <b>3</b></span>
+    <div>
+      <strong>JOHNBARON KHALE MENDOZA</strong>
+      <small>BSCS • 3rd Year</small>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <button class="close-menu" onclick="toggleMenu()">✕</button>
+    <button class="nav active" onclick="showSection('dashboard', this)">🏠 <span>Dashboard</span></button>
+    <button class="nav" onclick="showSection('subjects', this)">📚 <span>My Subjects</span></button>
+    <button class="nav" onclick="showSection('submissions', this)">📤 <span>Submissions</span></button>
+    <button class="nav" onclick="showSection('materials', this)">📁 <span>Course Materials</span></button>
+    <button class="nav" onclick="showSection('announcements', this)">📢 <span>Announcements</span></button>
+    <button class="nav" onclick="showSection('calendar', this)">📅 <span>Academic Calendar</span></button>
+    <button class="nav" onclick="showSection('grades', this)">📊 <span>Grades</span></button>
+    <button class="nav" onclick="showSection('attendance', this)">☑️ <span>Attendance</span></button>
+    <button class="nav" onclick="showSection('exams', this)">📝 <span>Exam Schedule</span></button>
+    <button class="nav" onclick="showSection('messages', this)">✉️ <span>Messages <i>2</i></span></button>
+    <button class="nav" onclick="showSection('profile', this)">👤 <span>Profile Settings</span></button>
+    <button class="nav" onclick="showSection('help', this)">❓ <span>Help & Support</span></button>
+    <button class="logout" onclick="alert('Logout button clicked.')">↪ Log Out</button>
+  </aside>
+
+  <main class="content">
+
+    <!-- DASHBOARD -->
+    <section id="dashboard" class="page active-page">
+      <div class="welcome card">
+        <div class="avatar">JM</div>
+        <div class="welcome-text">
+          <p>Welcome back,</p>
+          <h2>JOHNBARON KHALE MENDOZA</h2>
+          <span>BSCS • 3rd Year</span>
+          <small>St. Paul University San Miguel, Bulacan</small>
+        </div>
+        <div class="motto">“Veritas • Caritas • Scientia”</div>
+      </div>
+
+      <div class="stats">
+        <div class="stat green"><span>📚</span><p>Total Subjects</p><strong>8</strong></div>
+        <div class="stat yellow"><span>⏰</span><p>Pending Submissions</p><strong id="pendingCount">5</strong></div>
+        <div class="stat green"><span>✓</span><p>Completed Submissions</p><strong id="doneCount">1</strong></div>
+        <div class="stat yellow"><span>📅</span><p>Today's Classes</p><strong>3</strong></div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="section-title"><h3>📚 My Subjects & Schedule</h3><button onclick="showSection('subjects')">View All</button></div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Subject</th><th>Schedule / Time</th><th>Room</th></tr></thead>
+              <tbody>
+                <tr><td>Algorithms and Complexity</td><td>Mon • 10:00 AM–12:00 PM</td><td>Lab 1</td></tr>
+                <tr><td>Computational Science</td><td>Tue • 1:00–3:00 PM</td><td>Lab 2</td></tr>
+                <tr><td>Object-Oriented Programming</td><td>Wed • 10:00 AM–12:00 PM</td><td>Lab 3</td></tr>
+                <tr><td>Database Management Systems</td><td>Thu • 1:00–3:00 PM</td><td>Lab 2</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="section-title"><h3>🕐 Today's Schedule</h3><button onclick="showSection('subjects')">View All</button></div>
+          <div class="schedule-item"><b>Algorithms and Complexity</b><span>10:00 AM – 12:00 PM • Lab 1</span></div>
+          <div class="schedule-item"><b>Computational Science</b><span>1:00 PM – 3:00 PM • Lab 2</span></div>
+          <div class="schedule-item"><b>Object-Oriented Programming</b><span>4:00 PM – 6:00 PM • Lab 3</span></div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="section-title"><h3>📤 Recent Submissions</h3><button onclick="showSection('submissions')">View All</button></div>
+          <div id="recentList">
+            <div class="recent"><span>OOP — Assignment 1</span><b class="done">Done</b></div>
+            <div class="recent"><span>Database Management — Quiz 1</span><b class="done">Done</b></div>
+            <div class="recent"><span>Web Development — Project Proposal</span><b class="done">Done</b></div>
+            <div class="recent"><span>Algorithms — Problem Set 2</span><b class="pending">Pending</b></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="section-title"><h3>📢 Announcements</h3><button onclick="showSection('announcements')">View All</button></div>
+          <div class="notice"><b>Submission Reminder</b><br><small>Submit your requirements before the deadline.</small></div>
+          <div class="notice"><b>Class Update</b><br><small>Check your schedule for room and time changes.</small></div>
+          <div class="notice"><b>Exam Reminder</b><br><small>Review the posted exam schedule.</small></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-title"><h3>⚡ Quick Functions</h3></div>
+        <div class="quick-grid">
+          <button onclick="showSection('submissions')">📤<b>Submit Assignment</b></button>
+          <button onclick="showSection('grades')">📊<b>View Grades</b></button>
+          <button onclick="showSection('materials')">📚<b>Course Materials</b></button>
+          <button onclick="showSection('calendar')">📅<b>Academic Calendar</b></button>
+          <button onclick="showSection('exams')">📝<b>Exam Schedule</b></button>
+          <button onclick="showSection('messages')">✉️<b>Messages</b></button>
+          <button onclick="showSection('attendance')">☑️<b>Attendance</b></button>
+          <button onclick="showSection('help')">❓<b>Help & Support</b></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUBJECTS -->
+    <section id="subjects" class="page">
+      <div class="page-heading"><h2>My Subjects & Schedule</h2><p>BSCS 3rd Year</p></div>
+      <div class="card table-wrap">
+        <table>
+          <thead><tr><th>Subject</th><th>Day</th><th>Time</th><th>Room</th></tr></thead>
+          <tbody>
+            <tr><td>Algorithms and Complexity</td><td>Monday</td><td>10:00 AM–12:00 PM</td><td>Lab 1</td></tr>
+            <tr><td>Computational Science</td><td>Tuesday</td><td>1:00–3:00 PM</td><td>Lab 2</td></tr>
+            <tr><td>Object-Oriented Programming</td><td>Wednesday</td><td>10:00 AM–12:00 PM</td><td>Lab 3</td></tr>
+            <tr><td>Database Management Systems</td><td>Thursday</td><td>1:00–3:00 PM</td><td>Lab 2</td></tr>
+            <tr><td>Software Engineering</td><td>Friday</td><td>10:00 AM–12:00 PM</td><td>Lab 4</td></tr>
+            <tr><td>Web Development</td><td>Monday</td><td>1:00–3:00 PM</td><td>Lab 1</td></tr>
+            <tr><td>Operating Systems</td><td>Tuesday</td><td>10:00 AM–12:00 PM</td><td>Lab 3</td></tr>
+            <tr><td>Research in Computer Science</td><td>Wednesday</td><td>1:00–3:00 PM</td><td>Lab 4</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SUBMISSIONS -->
+    <section id="submissions" class="page">
+      <div class="page-heading"><h2>Submissions</h2><p>Submit activities and track your requirements.</p></div>
+      <div class="card table-wrap">
+        <table id="submissionTable">
+          <thead><tr><th>Subject</th><th>Activity</th><th>Deadline</th><th>Time</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td>Algorithms and Complexity</td><td>Algorithm Analysis Activity</td><td>Sept. 23, 2026</td><td>11:59 PM</td><td><span class="badge pending">Pending</span></td><td><button class="submit-btn" onclick="submitTask(this)">Submit</button></td></tr>
+            <tr><td>Computational Science</td><td>Python Computational Activity</td><td>Sept. 24, 2026</td><td>11:59 PM</td><td><span class="badge pending">Pending</span></td><td><button class="submit-btn" onclick="submitTask(this)">Submit</button></td></tr>
+            <tr><td>Object-Oriented Programming</td><td>Java OOP Project</td><td>Sept. 25, 2026</td><td>5:00 PM</td><td><span class="badge pending">Pending</span></td><td><button class="submit-btn" onclick="submitTask(this)">Submit</button></td></tr>
+            <tr><td>Database Management Systems</td><td>Database Design Activity</td><td>Sept. 26, 2026</td><td>11:59 PM</td><td><span class="badge pending">Pending</span></td><td><button class="submit-btn" onclick="submitTask(this)">Submit</button></td></tr>
+            <tr><td>Software Engineering</td><td>SDLC Documentation</td><td>Sept. 28, 2026</td><td>11:59 PM</td><td><span class="badge pending">Pending</span></td><td><button class="submit-btn" onclick="submitTask(this)">Submit</button></td></tr>
+            <tr><td>Web Development</td><td>Interactive Website</td><td>Sept. 30, 2026</td><td>11:59 PM</td><td><span class="badge done">Done</span></td><td><button disabled>Submitted</button></td></tr>
+            <tr><td>Operating Systems</td><td>Process Management Report</td><td>Oct. 1, 2026</td><td>11:59 PM</td><td><span class="badge pending">Pending</span></td><td><button class="submit-btn" onclick="submitTask(this)">Submit</button></td></tr>
+            <tr><td>Research in Computer Science</td><td>Research Proposal</td><td>Oct. 3, 2026</td><td>5:00 PM</td><td><span class="badge pending">Pending</span></td><td><button class="submit-btn" onclick="submitTask(this)">Submit</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- OTHER PAGES -->
+    <section id="materials" class="page">
+      <div class="page-heading"><h2>Course Materials</h2><p>Learning resources for your subjects.</p></div>
+      <div class="card material-grid">
+        <div><h3>Algorithms and Complexity</h3><p>Algorithms, Big-O, sorting and searching materials.</p><button onclick="alert('Materials opened.')">Open Materials</button></div>
+        <div><h3>Computational Science</h3><p>Python, numerical methods and computational activities.</p><button onclick="alert('Materials opened.')">Open Materials</button></div>
+        <div><h3>Object-Oriented Programming</h3><p>Java classes, objects, inheritance and polymorphism.</p><button onclick="alert('Materials opened.')">Open Materials</button></div>
+        <div><h3>Software Engineering</h3><p>SDLC, requirements and system documentation.</p><button onclick="alert('Materials opened.')">Open Materials</button></div>
+      </div>
+    </section>
+
+    <section id="announcements" class="page">
+      <div class="page-heading"><h2>Announcements</h2><p>Important academic updates.</p></div>
+      <div class="card"><div class="notice"><b>Submission Reminder</b><p>Check your pending requirements and submit before the deadline.</p></div><div class="notice"><b>Schedule Reminder</b><p>Always check the latest subject schedule.</p></div><div class="notice"><b>Academic Update</b><p>New materials and activities may be posted by your instructors.</p></div></div>
+    </section>
+
+    <section id="calendar" class="page">
+      <div class="page-heading"><h2>Academic Calendar</h2><p>Upcoming activities and deadlines.</p></div>
+      <div class="card calendar-list"><div><b>Sept. 23</b><span>Algorithms submission deadline</span></div><div><b>Sept. 25</b><span>OOP project deadline</span></div><div><b>Sept. 28</b><span>Software Engineering documentation</span></div><div><b>Oct. 3</b><span>Research proposal deadline</span></div></div>
+    </section>
+
+    <section id="grades" class="page">
+      <div class="page-heading"><h2>Grades</h2><p>Sample academic performance tracker.</p></div>
+      <div class="card table-wrap"><table><thead><tr><th>Subject</th><th>Current Grade</th><th>Status</th></tr></thead><tbody><tr><td>Algorithms and Complexity</td><td>—</td><td>In Progress</td></tr><tr><td>Computational Science</td><td>—</td><td>In Progress</td></tr><tr><td>Object-Oriented Programming</td><td>—</td><td>In Progress</td></tr><tr><td>Database Management Systems</td><td>—</td><td>In Progress</td></tr></tbody></table></div>
+    </section>
+
+    <section id="attendance" class="page">
+      <div class="page-heading"><h2>Attendance</h2><p>Track class attendance.</p></div>
+      <div class="card table-wrap"><table><thead><tr><th>Subject</th><th>Present</th><th>Absent</th><th>Attendance</th></tr></thead><tbody><tr><td>Algorithms and Complexity</td><td>18</td><td>1</td><td>95%</td></tr><tr><td>Computational Science</td><td>17</td><td>2</td><td>89%</td></tr><tr><td>Object-Oriented Programming</td><td>19</td><td>0</td><td>100%</td></tr></tbody></table></div>
+    </section>
+
+    <section id="exams" class="page">
+      <div class="page-heading"><h2>Exam Schedule</h2><p>Upcoming examinations.</p></div>
+      <div class="card table-wrap"><table><thead><tr><th>Subject</th><th>Date</th><th>Time</th><th>Room</th></tr></thead><tbody><tr><td>Algorithms and Complexity</td><td>Oct. 10, 2026</td><td>9:00 AM</td><td>Lab 1</td></tr><tr><td>Computational Science</td><td>Oct. 11, 2026</td><td>1:00 PM</td><td>Lab 2</td></tr><tr><td>Object-Oriented Programming</td><td>Oct. 12, 2026</td><td>9:00 AM</td><td>Lab 3</td></tr></tbody></table></div>
+    </section>
+
+    <section id="messages" class="page">
+      <div class="page-heading"><h2>Messages</h2><p>Student and instructor communication.</p></div>
+      <div class="card"><div class="message"><b>Instructor</b><span>New activity has been posted.</span></div><div class="message"><b>BSCS Department</b><span>Please check the latest announcement.</span></div></div>
+    </section>
+
+    <section id="profile" class="page">
+      <div class="page-heading"><h2>Profile Settings</h2><p>Your student information.</p></div>
+      <div class="card profile-details"><div class="avatar big">JM</div><div><h3>JOHNBARON KHALE MENDOZA</h3><p><b>Program:</b> Bachelor of Science in Computer Science</p><p><b>Year Level:</b> 3rd Year</p><p><b>School:</b> St. Paul University San Miguel</p></div></div>
+    </section>
+
+    <section id="help" class="page">
+      <div class="page-heading"><h2>Help & Support</h2><p>Basic student portal assistance.</p></div>
+      <div class="card"><h3>Need help?</h3><p>For account, submission, schedule, or academic concerns, contact your instructor or the appropriate university office.</p><button onclick="alert('Help request button clicked.')">Request Assistance</button></div>
+    </section>
+
+  </main>
+</div>
+
+<nav class="mobile-nav">
+  <button onclick="showSection('dashboard')">🏠<span>Home</span></button>
+  <button onclick="showSection('subjects')">📚<span>Subjects</span></button>
+  <button onclick="showSection('submissions')">📤<span>Submit</span></button>
+  <button onclick="showSection('calendar')">📅<span>Calendar</span></button>
+  <button onclick="toggleMenu()">☰<span>More</span></button>
+</nav>
+
+<script src="script.js"></script>
+</body>
+</html>
